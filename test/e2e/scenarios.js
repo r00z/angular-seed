@@ -42,4 +42,18 @@ describe('my app', function() {
     });
 
   });
+
+  describe('view3', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('#/view3');
+    });
+
+
+    it('should render view3 when user navigates to /view3', function() {
+      expect(element('[ng-view] p:first').text()).
+             toEqual("my test 3");
+    });
+
+  });
 });
