@@ -10,7 +10,7 @@ describe('controllers', function () {
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
 
-        ctrl = $controller('MyCtrl3', {$scope: scope});
+        ctrl = $controller('MyCtrl3', {$scope: scope, Data : {}});
     }));
 
     it('MyCtrl3 should exist', inject(function () {

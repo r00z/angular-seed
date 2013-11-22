@@ -1,15 +1,16 @@
 'use strict';
 
 /* Controllers */
-
 angular.module('myApp.controllers', []).
-  controller('MyCtrl1', function() {
+    controller('MyCtrl1', function () {
 
-  })
-  .controller('MyCtrl2', function() {
+    })
 
-  })
-  .controller('MyCtrl3', function($scope) {
+    .controller('MyCtrl2', function ($scope, Data) {
+        $scope.data = Data;
+    })
+
+    .controller('MyCtrl3', function ($scope, Data) {
         $scope.phones = [
             {'name': 'Nexus S',
                 'snippet': 'Fast just got faster with Nexus S.',
@@ -23,4 +24,5 @@ angular.module('myApp.controllers', []).
         ];
 
         $scope.orderProp = 'age';
-  });
+        $scope.data = Data;
+    });
