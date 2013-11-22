@@ -8,14 +8,13 @@ angular.module('myApp.directives', ['d3']).
         return function (scope, elm, attrs) {
             elm.text(version);
         };
-    }])
-
-//angular.module('myApp.directives', ['d3'])
-    .directive('d3Bars', ['$window', '$timeout', 'd3Service',
+    }]).
+    directive('d3Bars', ['$window', '$timeout', 'd3Service',
         function ($window, $timeout, d3Service) {
             return {
                 restrict: 'A',
                 scope: {
+                    data: '='
                 },
                 link: function (scope, ele, attrs) {
                     d3Service.d3().then(function (d3) {
@@ -42,14 +41,6 @@ angular.module('myApp.directives', ['d3']).
                         scope.$watch('data', function (newData) {
                             scope.render(newData);
                         }, true);
-
-                        // hard-code data
-                        scope.data = [
-                            {name: "Greg", score: 98},
-                            {name: "Ari", score: 96},
-                            {name: 'Q', score: 75},
-                            {name: "Loser", score: 48}
-                        ];
 
                         scope.render = function (data) {
                             svg.selectAll('*').remove();
